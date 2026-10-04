@@ -1,0 +1,49 @@
+# Pricing engine on Kubernetes (e.g. EKS, with the broker on Amazon MSK).
+# One consumer group; scale replicas up to the partition count of pbp.events,
+# since events are keyed by game_id and each game stays on one partition.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pricing-engine-env
+data:
+  KAFKA_BOOTSTRAP: "b-1.msk-cluster.example:9092"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pricing-engine
+  labels: {app: pricing-engine}
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: pricing-engine}
+  template:
+    metadata:
+      labels: {app: pricing-engine}
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "8000"
+    spec:
+      containers:
+        - name: engine
+          image: ghcr.io/quintonmcreynolds/nba-live-pricing:latest
+          ports: [{containerPort: 8000}]
+          envFrom: [{configMapRef: {name: pricing-engine-env}}]
+          readinessProbe:
+            httpGet: {path: /health, port: 8000}
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: {path: /health, port: 8000}
+            periodSeconds: 15
+          resources:
+            requests: {cpu: 250m, memory: 256Mi}
+            limits: {cpu: "1", memory: 512Mi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pricing-engine
+spec:
+  selector: {app: pricing-engine}
+  ports: [{port: 80, targetPort: 8000}]

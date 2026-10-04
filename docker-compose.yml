@@ -1,0 +1,32 @@
+# Local stack: Redpanda (Kafka API) + pricing engine + a replayer that streams one recorded
+# night of the live feed at 60x speed.   docker compose up --build
+services:
+  redpanda:
+    image: redpandadata/redpanda:v24.2.7
+    command: >
+      redpanda start --overprovisioned --smp 1 --memory 512M --reserve-memory 0M
+      --node-id 0 --check=false --kafka-addr 0.0.0.0:9092
+      --advertise-kafka-addr redpanda:9092
+    ports: ["9092:9092"]
+    healthcheck:
+      test: ["CMD", "rpk", "cluster", "health"]
+      interval: 5s
+      retries: 20
+
+  engine:
+    build: .
+    environment:
+      KAFKA_BOOTSTRAP: redpanda:9092
+    ports: ["8000:8000"]
+    depends_on:
+      redpanda: {condition: service_healthy}
+
+  replayer:
+    build: .
+    command: ["python", "-m", "livepricing.replay_cli", "--bootstrap", "redpanda:9092", "--speed", "60"]
+    environment:
+      LIVEPRICING_SERVE: ""
+    volumes:
+      - ./artifacts/slate_events.jsonl:/app/artifacts/slate_events.jsonl:ro
+    depends_on:
+      redpanda: {condition: service_healthy}

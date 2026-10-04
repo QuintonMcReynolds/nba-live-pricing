@@ -1,0 +1,242 @@
+{
+  "train_season": "2024-25",
+  "test_season": "2025-26",
+  "test_states": 154980,
+  "test_games": 1230,
+  "params": {
+    "win": {
+      "sigma": 14.9502,
+      "poss_value": 0.3485,
+      "p_ot_home": 0.5,
+      "gamma": 0.9169,
+      "drift_scale": 1.2939,
+      "revert_a0": 0.641,
+      "revert_a1": -0.4421
+    },
+    "total": {
+      "prior_seconds": 1000000.0,
+      "dispersion": 1.6324,
+      "close_bonus": 2.466,
+      "close_margin": 10.0,
+      "close_window": 300.0
+    }
+  },
+  "win_prob": {
+    "Production: fit to final margins": {
+      "params": {
+        "sigma": 14.9502,
+        "poss_value": 0.3485,
+        "p_ot_home": 0.5,
+        "gamma": 0.9169,
+        "drift_scale": 1.2939,
+        "revert_a0": 0.641,
+        "revert_a1": -0.4421
+      },
+      "log_loss": 0.3757188268604998,
+      "brier": 0.12515721314815303,
+      "margin_crps": 4.832771337719836,
+      "margin_coverage_80": 0.8002982939207429,
+      "by_bucket": {
+        "Q1": 0.584333598696289,
+        "Q2": 0.5189797833256437,
+        "Q3": 0.4201574309333051,
+        "Q4, >5 min left": 0.3107615426079447,
+        "Last 5 min": 0.17962545107787434,
+        "Last minute": 0.1164248705671305
+      }
+    },
+    "Fit to win/loss only": {
+      "params": {
+        "sigma": 18.675,
+        "poss_value": 0.4805,
+        "p_ot_home": 0.5,
+        "gamma": 0.9339,
+        "drift_scale": 1.8159,
+        "revert_a0": -0.1548,
+        "revert_a1": 0.4767
+      },
+      "log_loss": 0.3745675514612362,
+      "brier": 0.12452603264557732,
+      "margin_crps": 4.983322096605484,
+      "margin_coverage_80": 0.8756681243926142,
+      "by_bucket": {
+        "Q1": 0.5818873736471671,
+        "Q2": 0.5173701390565867,
+        "Q3": 0.4190454465002318,
+        "Q4, >5 min left": 0.3095590715737063,
+        "Last 5 min": 0.18027626863031543,
+        "Last minute": 0.11455649496161555
+      }
+    },
+    "No lead mean-reversion": {
+      "params": {
+        "sigma": 15.1424,
+        "poss_value": 0.3507,
+        "p_ot_home": 0.5,
+        "gamma": 0.9154,
+        "drift_scale": 1.1034,
+        "revert_a0": 0.0,
+        "revert_a1": 0.0
+      },
+      "log_loss": 0.38083380651540133,
+      "brier": 0.12723457370242522,
+      "margin_crps": 4.881919461815973,
+      "margin_coverage_80": 0.7995221898283122,
+      "by_bucket": {
+        "Q1": 0.5927388870924272,
+        "Q2": 0.5281808375634722,
+        "Q3": 0.4264300337944476,
+        "Q4, >5 min left": 0.31472122793979357,
+        "Last 5 min": 0.18021516917698038,
+        "Last minute": 0.11637862416830648
+      }
+    },
+    "No drift calibration (beta = 1)": {
+      "params": {
+        "sigma": 15.0155,
+        "poss_value": 0.3492,
+        "p_ot_home": 0.5,
+        "gamma": 0.9191,
+        "drift_scale": 1.0,
+        "revert_a0": 0.5931,
+        "revert_a1": -0.4541
+      },
+      "log_loss": 0.3791247670416242,
+      "brier": 0.12658954049038645,
+      "margin_crps": 4.855895292621338,
+      "margin_coverage_80": 0.8000350934024404,
+      "by_bucket": {
+        "Q1": 0.5916872298778851,
+        "Q2": 0.5244796218057893,
+        "Q3": 0.42350967524946836,
+        "Q4, >5 min left": 0.312422379679341,
+        "Last 5 min": 0.18014294632786299,
+        "Last minute": 0.11663068234652293
+      }
+    },
+    "No late-volatility term (gamma = 1)": {
+      "params": {
+        "sigma": 16.0616,
+        "poss_value": 0.3389,
+        "p_ot_home": 0.5,
+        "gamma": 1.0,
+        "drift_scale": 1.296,
+        "revert_a0": 0.6794,
+        "revert_a1": -0.5087
+      },
+      "log_loss": 0.3765613600132441,
+      "brier": 0.12532666215840502,
+      "margin_crps": 4.836601879048985,
+      "margin_coverage_80": 0.8025861138106036,
+      "by_bucket": {
+        "Q1": 0.5852618613038871,
+        "Q2": 0.5198751482855863,
+        "Q3": 0.4207000750278989,
+        "Q4, >5 min left": 0.31070520132240037,
+        "Last 5 min": 0.18006703663521328,
+        "Last minute": 0.11957429054601972
+      }
+    },
+    "No possession": {
+      "params": {
+        "sigma": 14.9502,
+        "poss_value": 0.0,
+        "p_ot_home": 0.5,
+        "gamma": 0.9169,
+        "drift_scale": 1.2939,
+        "revert_a0": 0.641,
+        "revert_a1": -0.4421
+      },
+      "log_loss": 0.3765684683800168,
+      "brier": 0.12540612781810523,
+      "margin_crps": 4.840759425911979,
+      "margin_coverage_80": 0.7974300831443688,
+      "by_bucket": {
+        "Q1": 0.584712155067405,
+        "Q2": 0.5193408888712909,
+        "Q3": 0.42054208632944984,
+        "Q4, >5 min left": 0.31132296009716065,
+        "Last 5 min": 0.18085003996320684,
+        "Last minute": 0.11958511075971416
+      }
+    },
+    "No pregame prior": {
+      "params": {
+        "sigma": 14.9502,
+        "poss_value": 0.3485,
+        "p_ot_home": 0.5,
+        "gamma": 0.9169,
+        "drift_scale": 1.2939,
+        "revert_a0": 0.641,
+        "revert_a1": -0.4421
+      },
+      "log_loss": 0.4070650328734733,
+      "brier": 0.1383448199872634,
+      "margin_crps": 5.222992112444043,
+      "margin_coverage_80": 0.7760163589245221,
+      "by_bucket": {
+        "Q1": 0.6598208365703261,
+        "Q2": 0.5703495758333232,
+        "Q3": 0.4479390645349118,
+        "Q4, >5 min left": 0.32146313627162765,
+        "Last 5 min": 0.18241704276599638,
+        "Last minute": 0.1172837991901236
+      }
+    },
+    "Gradient boosting (win prob only)": {
+      "log_loss": 0.37636796380779,
+      "brier": 0.1253216287482582,
+      "margin_crps": null,
+      "margin_coverage_80": null,
+      "by_bucket": {
+        "Q1": 0.5843090866513658,
+        "Q2": 0.5191248385998573,
+        "Q3": 0.42085826591471215,
+        "Q4, >5 min left": 0.31293082346685075,
+        "Last 5 min": 0.18074016422700773,
+        "Last minute": 0.11646622707558038
+      }
+    }
+  },
+  "total": {
+    "Fitted model (pregame prior + close-game bonus)": {
+      "mae": 8.232847946928143,
+      "crps": 5.824537761143453,
+      "coverage_80": 0.8108938019652305,
+      "crps_by_bucket": {
+        "Q1": 9.729860815966456,
+        "Q2": 8.182524234574542,
+        "Q3": 6.436746762652318,
+        "Q4, >5 min left": 4.413494595470578,
+        "Last 5 min": 2.510410867382111,
+        "Last minute": 1.4526804803456879
+      }
+    },
+    "Same, without close-game bonus": {
+      "mae": 8.251920747160453,
+      "crps": 5.8529488262860205,
+      "coverage_80": 0.8029977864161537,
+      "crps_by_bucket": {
+        "Q1": 9.729860815966456,
+        "Q2": 8.182524234574542,
+        "Q3": 6.436746762652318,
+        "Q4, >5 min left": 4.413494595470578,
+        "Last 5 min": 2.6013332446688073,
+        "Last minute": 1.5388444506736987
+      }
+    },
+    "Pace extrapolation only": {
+      "mae": 15.312375247497048,
+      "crps": 13.076589923599895,
+      "coverage_80": 0.8189112946766008,
+      "crps_by_bucket": {
+        "Q1": 41.31273125569016,
+        "Q2": 12.782666063815608,
+        "Q3": 7.9183497149231865,
+        "Q4, >5 min left": 4.7428611890868115,
+        "Last 5 min": 2.6534019284216255,
+        "Last minute": 1.5520909086892558
+      }
+    }
+  }
+}

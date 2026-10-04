@@ -1,0 +1,94 @@
+{
+  "slate": {
+    "date": "2026-04-10",
+    "games": 15,
+    "events_in_feed": 8265,
+    "events_delivered": 8423,
+    "resent_events": 179,
+    "events_lost_in_outage": 21,
+    "engine": {
+      "events": 8174,
+      "quotes": 3766,
+      "dropped_out_of_order": 249,
+      "suspensions": 49,
+      "reopens": 34,
+      "shadow_alerts": 10,
+      "overrides": 1,
+      "latency_us_p50": 52.87500061967876,
+      "latency_us_p99": 61.791999542037956,
+      "latency_us_max": 193.7079996423563,
+      "markets": 15,
+      "suspended": 0
+    },
+    "quotes_published": 3773,
+    "suspension_episodes": {
+      "stale feed": 4,
+      "outcome decided": 15,
+      "unexplained": 8,
+      "price jump": 3
+    },
+    "stale_feed_episodes": [
+      {
+        "game": "PHI @ IND",
+        "period": 1,
+        "clock_left": 232,
+        "reason": "stale feed (71s)"
+      },
+      {
+        "game": "PHI @ IND",
+        "period": 2,
+        "clock_left": 431,
+        "reason": "stale feed (124s)"
+      },
+      {
+        "game": "DET @ CHA",
+        "period": 3,
+        "clock_left": 499,
+        "reason": "stale feed (202s)"
+      },
+      {
+        "game": "LAC @ POR",
+        "period": 3,
+        "clock_left": 422,
+        "reason": "stale feed (215s)"
+      }
+    ],
+    "alerts": {
+      "unexplained_divergence": 10
+    },
+    "games_flagged_during_hot_edit": 8,
+    "outage_game": "DET @ CHA",
+    "override_game": "OKC @ DEN",
+    "audit": [
+      {
+        "type": "params",
+        "who": "ops_user (unreviewed)",
+        "version": "1.0.0-hotedit"
+      },
+      {
+        "type": "params",
+        "who": "ops_user (revert)",
+        "version": "1.0.0"
+      },
+      {
+        "type": "override",
+        "game_id": 22501182,
+        "points": 3.0,
+        "trader": "trader_17",
+        "reason": "injury news: away starter ruled out at half",
+        "accepted": true,
+        "why": "ok"
+      }
+    ]
+  },
+  "season": {
+    "games": 1230,
+    "events": 708268,
+    "quotes": 369154,
+    "wall_seconds": 37.53,
+    "events_per_second": 18870,
+    "latency_us_p50": 53.2,
+    "latency_us_p99": 63.1,
+    "latency_us_max": 6234.3
+  }
+}

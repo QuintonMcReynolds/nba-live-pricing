@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "livepricing"
+version = "0.1.0"
+description = "Live NBA pricing engine: Bayesian pregame ratings, in-game win probability, streaming and trader guardrails"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "pandas",
+    "pyarrow",
+    "scipy",
+    "fastapi>=0.110",
+    "uvicorn",
+]
+
+[project.optional-dependencies]
+model = ["pymc>=5.10", "arviz", "matplotlib", "scikit-learn"]
+kafka = ["confluent-kafka>=2.3"]
+dev = ["pytest", "ruff", "httpx"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["B905"]

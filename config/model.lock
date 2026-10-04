@@ -1,0 +1,41 @@
+{
+  "config_sha256": "e92ece297283dd8a47ffeb3f7df4ec7f6af59d6b16aae6233fc910ffbb03e2d0",
+  "version": "1.0.0",
+  "golden": [
+    {
+      "p_home": 0.5,
+      "total_mean": 228.0,
+      "total_sd": 19.3199
+    },
+    {
+      "p_home": 0.698117,
+      "total_mean": 228.0,
+      "total_sd": 19.3199
+    },
+    {
+      "p_home": 0.653456,
+      "total_mean": 223.9942,
+      "total_sd": 13.6511
+    },
+    {
+      "p_home": 0.212958,
+      "total_mean": 226.9993,
+      "total_sd": 9.6495
+    },
+    {
+      "p_home": 0.815589,
+      "total_mean": 221.2154,
+      "total_sd": 3.432
+    },
+    {
+      "p_home": 0.296459,
+      "total_mean": 223.2576,
+      "total_sd": 2.306
+    },
+    {
+      "p_home": 0.977941,
+      "total_mean": 224.476,
+      "total_sd": 6.3219
+    }
+  ]
+}

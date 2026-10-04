@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "win": {
+    "sigma": 14.9502,
+    "poss_value": 0.3485,
+    "p_ot_home": 0.5,
+    "gamma": 0.9169,
+    "drift_scale": 1.2939,
+    "revert_a0": 0.641,
+    "revert_a1": -0.4421
+  },
+  "total": {
+    "prior_seconds": 1000000.0,
+    "dispersion": 1.6324,
+    "close_bonus": 2.466,
+    "close_margin": 10.0,
+    "close_window": 300.0
+  },
+  "automation": {
+    "vig": 0.045,
+    "min_prob_move": 0.005,
+    "jump_suspend": 0.12,
+    "suspend_events": 2,
+    "stale_feed_seconds": 45.0,
+    "max_override_pts": 4.0,
+    "override_half_life_secs": 360.0,
+    "shadow_tolerance": 0.02,
+    "stale_seconds_by_action": {
+      "2pt": 70.2,
+      "3pt": 64.4,
+      "block": 45.0,
+      "ejection": 754.8,
+      "foul": 200.4,
+      "freethrow": 102.9,
+      "game": 205.6,
+      "jumpball": 65.0,
+      "period": 1011.1,
+      "rebound": 123.7,
+      "steal": 73.9,
+      "substitution": 255.0,
+      "timeout": 269.0,
+      "turnover": 144.7,
+      "violation": 129.1
+    }
+  }
+}
