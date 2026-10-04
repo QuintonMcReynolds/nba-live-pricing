@@ -40,3 +40,6 @@ jobs:
           for i in $(seq 1 20); do curl -fs localhost:8000/health && break; sleep 1; done
           curl -fs localhost:8000/health
           curl -fs localhost:8000/metrics
+      - name: Container logs
+        if: always()
+        run: docker logs engine || true

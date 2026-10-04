@@ -15,7 +15,7 @@ COPY artifacts/pregame_slate.json ./artifacts/pregame_slate.json
 RUN useradd --create-home app
 USER app
 
-ENV LIVEPRICING_SERVE=1
+ENV LIVEPRICING_SERVE=1 LIVEPRICING_CONFIG_DIR=/app/config
 EXPOSE 8000
 HEALTHCHECK --interval=15s --timeout=3s CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"
 CMD ["uvicorn", "livepricing.service:app", "--host", "0.0.0.0", "--port", "8000"]
